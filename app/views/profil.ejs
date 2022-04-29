@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Axoll Draw</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+    integrity="sha512-UJfAaOlIRtdR+0P6C3KUoTDAxVTuy3lnSXLyLKlHYJlcSU8Juge/mjeaxDNMlw9LgeIotgz5FP8eUQPhX1q10A=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+
+<body>
+  <header>
+    <nav class="nav-extended #b0bec5 blue-grey lighten-2">
+      <div class="nav-content">
+        <ul class="tabs tabs-transparent">
+          <li class="tab right">
+            <a>
+              <i class="material-icons" onclick="window.location.href = '/favoris'">favorite_border</i>
+            </a>
+          </li>
+          <li class="tab right">
+            <a>
+              <i class="material-icons" onclick="window.location.href = '/profil'">account_box</i>
+            </a>
+          </li>
+          <% if (locals.session.user !== undefined ) {%>
+          <% if (locals.session.user[0].role === 'admin') { %>
+          <li class="tab right">
+            <a>
+              <i class="material-icons" onclick="window.location.href = '/admin'">lock_open</i>
+            </a>
+          </li>
+          <% }} %>
+          <li class="tab right ">
+            <a>
+              <i class="material-icons " onclick="window.location.href = '/panier'">shopping_cart</i>
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div class="nav-wrapper">
+        <a type="image" href="/">
+          <img class="responsive-img circle z-depth-3" src="/images/icones/iconeaxolll.jpg">
+        </a>
+        <ul id="nav-mobile" class="right">
+          <% if(locals.session.user) { %>
+          <li><a href="/logout">Se déconnecter</a></li>
+          <% } else { %>
+          <li><a href="/login">Se connecter</a></li>
+          <li><a href="/register">S'inscrire</a></li>
+          <% } %>
+        </ul>
+      </div>
+    </nav>
+  </header>
+  <main class="container ">
+    <h1 class="profil">Mon profil</h1>
+
+    <div class="div-card col s12 m6 l3 #b0bec5 blue-grey lighten-2 z-depth-3">
+      <ul>
+        <h5 class="profil">Information utile :
+        </h5>
+        <li><p>Adress email : <strong><%=session.user[0].email%></strong>
+          <a class="btn-color" type="image" href="/edit/email">
+            <i class="material-icons ">create</i>
+          </a></p>
+        </li>
+        <li><p>Modifier votre mot de passe
+          <a class="btn-color" type="image" href="/edit/pass">
+            <i class="material-icons ">create</i>
+          </a></p>
+        </li>
+        <li><p>Nom : <strong><%=session.user[0].name%></strong></p></li>
+        <li><p>Prénom : <strong><%=session.user[0].prenom%></strong></p></li>
+      </ul>
+    </div>
+    <div class="div-card col s12 m6 l3 #b0bec5 blue-grey lighten-2 z-depth-3">
+      <ul>
+        <h5 class="profil">Adresse :
+          <a class="btn-color" type="image" href="/edit/adresse">
+            <i class="material-icons ">create</i>
+          </a>
+        </h5>
+        <li><p>Pays : <strong><%=session.user[0].pays%></strong></p></li>
+        <li><p>Ville : <strong><%=session.user[0].ville%></strong></p></li>
+        <li><p>Adresse: <strong><%=session.user[0].adresse%></strong></p></li>
+      </ul>
+    </div>
+
+    <div class="div-card col s12 m6 l3 #b0bec5 blue-grey lighten-2 z-depth-3">
+      <p>Nombre d'article en favoris :
+        <% if (renderMyFavs[0] !== undefined ) {%>
+        <%=Number(renderMyFavs.length)%> article(s)
+      </p>
+      <% } else { %>
+      0 article(s)
+      <% } %>
+
+      <p>Nombre d'article dans le panier:
+        <% if (renderMyPani[0] !== undefined ) {%>
+        <%=Number(renderMyPani.length)%> article(s)
+      </p>
+      <% } else { %>
+      0 article(s)
+      <% } %>
+    </div>
+  </main>
+  <%- include('partials/footer')%>

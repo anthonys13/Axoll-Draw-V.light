@@ -1,0 +1,39 @@
+<%- include('partials/header')%>
+<main>
+    <div class="card #b0bec5 blue-grey lighten-2">
+        <div class="card-content white-text">
+            <span class="card-title">Axoll Draw</span>
+            <p>Bienvenu ! Ici vous retrouverez des produits fait mains et unique ! Les stocks sont mis à jour après
+                chaque
+                commande. Nous vous souhaitons une agreable visite !
+            </p>
+        </div>
+        <div class="card-action">
+            <a href="https://www.instagram.com/axolldraw">Instagram</a>
+            <a href="https://www.facebook.com/lorange.kostecki">Facebook</a>
+        </div>
+    </div>
+    <%- include('partials/menu-category')%>
+    <!--MODULE TOUT LES ARTICLES -->
+    <div>
+        <p class="title waves-effect #01579b #b0bec5 blue-grey lighten-2 waves-light btn"><%= title %></p>
+        <article class="collection z-depth-1">
+            <% for(  const articleT of articleTout) { %>
+            <div class="collection-item avatar contenu-article z-depth-3">
+                <a type="image" href="/article/<%= articleT.id %>"><img class="img-article z-depth-3"
+                        src="/images/articles/<%= articleT.visual_0 %>" alt="IMG"></a>
+                <a class="btn-color">
+                    <i class="material-icons"
+                        onclick="window.location.href = '/favoris/add/<%= articleT.id %>'">favorite_border</i>
+                    <i class="material-icons "
+                        onclick="window.location.href = '/panier/add/<%= articleT.id %>'">add_shopping_cart</i>
+                </a>
+                <p class="detail-article"><%= articleT.description %></p>
+                <p><%= articleT.price %>€</p>
+            </div>
+            <% } %>
+        </article>
+    </div>
+</main>
+
+<%- include('partials/footer')%>

@@ -1,0 +1,57 @@
+<%- include('partials/header')%>
+<main class="main-favoris">
+
+    <h3 class="text-center"><%= title %> : <%=nombreArticleFav %> article(s) enregistré(s)</h3>
+
+    <div class="container">
+
+        <% if(renderMyFavs.length){ %>
+
+        <table class="table">
+
+            <thead>
+
+                <th>Article</th>
+                <th>Prix HT</th>
+                <th></th>
+
+            </thead>
+            <% for(const myFavs of renderMyFavs) { %>
+            <tr class="#b0bec5 white lighten-2">
+                <td>
+                    <a type="image" href="/article/<%=myFavs.id%>" class="flex-imgArticle">
+                        <img class="img-article z-depth-3" src="/images/articles/<%=myFavs.visual_0%>" alt="IMG"></a>
+                </td>
+                <td>
+                    <p><%=myFavs.description%></p>
+                </td>
+                <td>
+                    <p class="item-favoris"><%=myFavs.price%>€</p>
+                </td>
+
+                <td>
+                    <a class="btn-color" type="image" href="/favoris/delete/<%=myFavs.id%>">
+                        <i class="material-icons ">delete</i>
+                    </a>
+                    <a class="btn-color" type="image" href="/panier/add/<%=myFavs.id%>">
+                        <i class="material-icons ">add_shopping_cart</i>
+                    </a>
+                </td>
+            </tr>
+            <% } %>
+        </table>
+
+    </div>
+    <br>
+    <% } else { %>
+    <p>Aucun article dans vos favoris</p>
+    <% } %>
+
+    <div>
+        <a class="btn blue-grey lighten-2" href="/">
+            Retour à l'accueil
+        </a>
+    </div>
+    <br>
+</main>
+<%- include('partials/footer')%>

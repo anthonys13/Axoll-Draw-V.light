@@ -1,0 +1,110 @@
+<%- include('partials/header')%>
+<main class="grid row">
+  
+  <div class="col s12 m6 l3 left-menu">
+    <div class="card #b0bec5 blue-grey lighten-2">
+      <div class="card-content white-text">
+        <span class="card-title">Axoll Draw</span>
+        <p>Bienvenue ! Ici vous retrouverez des produits fait mains et unique ! Les stocks sont mis à jour après
+          chaque commande. Nous vous souhaitons une agreable visite !
+        </p>
+      </div>
+      <div class="card-action">
+        <a href="https://www.instagram.com">Instagram</a>
+        <a href="https://www.facebook.com">Facebook</a>
+        <a href="https://www.tiktok.com">TikTok</a>
+      </div>
+      <nav class="#fafafa grey lighten-5">
+        <div class="nav-wrapper">
+          <form action="/search/article" method="get">
+            <div class="input-field">
+              <input id="search" name="name" type="search" placeholder="Rechercher" required>
+              <label class="label-icon" for="search"><i class="material-icons">search</i></label>
+              <i class="material-icons">close</i>
+            </div>
+          </form>
+        </div>
+      </nav>
+    </div>
+      <%- include('partials/menu-category')%>
+  </div>
+
+  <div class="slider-css z-depth-3">
+    <input type="radio" id="slide1" name="slider" checked>
+    <input type="radio" id="slide2" name="slider">
+    <input type="radio" id="slide3" name="slider">
+    <input type="radio" id="slide4" name="slider">
+    <input type="radio" id="slide5" name="slider">
+    <% for( const articleCarr of articleCarousHome) { %>
+    <div class="slider-css-images-mini">
+      <label for="slide1">
+        <img src="/images/articles/affiches/<%= articleCarr.visual_1 %>" alt="IMG" />
+      </label>
+      <label for="slide2">
+        <img src="/images/articles/affiches/<%= articleCarr.visual_2 %>" alt="IMG" />
+      </label>
+      <label for="slide3">
+        <img src="/images/articles/affiches/<%= articleCarr.visual_3 %>" alt="IMG" />
+      </label>
+      <label for="slide4">
+        <img src="/images/articles/affiches/<%= articleCarr.visual_4 %>" alt="IMG" />
+      </label>
+      <label for="slide5">
+        <img src="/images/articles/affiches/<%= articleCarr.visual_5 %>" alt="IMG" />
+      </label>
+    </div>
+    <div class="slider-css-images">
+      <img src="/images/articles/affiches/<%= articleCarr.visual_1 %>" alt="IMG" />
+      <img src="/images/articles/affiches/<%= articleCarr.visual_2 %>" alt="IMG" />
+      <img src="/images/articles/affiches/<%= articleCarr.visual_3 %>" alt="IMG" />
+      <img src="/images/articles/affiches/<%= articleCarr.visual_4 %>" alt="IMG" />
+      <img src="/images/articles/affiches/<%= articleCarr.visual_5 %>" alt="IMG" />
+    </div>
+    <% } %>
+  </div>
+  
+  <div  class="col s12 l9 recent-article">
+    <p class="title waves-effect #fb8c00 orange darken-1 btn"><%= title1 %></p>
+    <article class="collection z-depth-1">
+      <% for( const articleR of articleRecent) { %>
+      <div class="collection-item avatar contenu-article z-depth-3">
+        <a type="image" href="/article/<%= articleR.id %>"><img class="img-article z-depth-3"
+            src="/images/articles/<%= articleR.visual_0 %>" alt="IMG"></a>
+        <div>
+          <a id="<%= articleR.id %>" class="btn-color" type="image" href="/favoris/add/<%= articleR.id %>">
+            <i class="material-icons ">favorite_border</i>
+          </a>
+          <a class="btn-color" type="image" href="/panier/add/<%= articleR.id %>">
+            <i class="material-icons ">add_shopping_cart</i>
+          </a>
+        </div>
+        <p class="detail-article"><%= articleR.description %></p>
+        <p><%= articleR.price %>€</p>
+      </div>
+      <% } %>
+    </article >
+  </div>
+  <div class="col s12 recent-article">
+    <p class="title waves-effect #01579b light-blue darken-4 waves-light btn"><%= title2 %></p>
+    <article class="collection z-depth-1">
+      <% for(  const articleT of articleTout) { %>
+      <div class="collection-item avatar contenu-article z-depth-3">
+        <a type="image" href="/article/<%= articleT.id %>"><img class="img-article z-depth-3"
+            src="/images/articles/<%= articleT.visual_0 %>" alt="IMG"></a>
+        <div>
+          <a id="<%= articleT.id %>" class="btn-color" type="image" href="/favoris/add/<%= articleT.id %>">
+            <i class="material-icons ">favorite_border</i>
+          </a>
+          <a class="btn-color" type="image" href="/panier/add/<%= articleT.id %>">
+            <i class="material-icons ">add_shopping_cart</i>
+          </a>
+        </div>
+        <p class="detail-article"><%= articleT.description %></p>
+        <p><%= articleT.price %>€</p>
+      </div>
+      <% } %>
+    </article>
+  </div>
+</main>
+
+<%- include('partials/footer')%>

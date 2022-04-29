@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Axoll Draw</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+
+<body class="#b0bec5 blue-grey lighten-1">
+
+  <main class="container #b0bec5 white lighten-2 z-depth-1">
+    <div class="row form-log">
+      <form class="col s12" action="/edit/pass" method="POST">
+        <h4 class="register-page">Modifier votre mot de passe</h4>
+        <% if(locals.error1) { %>
+        <p role="alert " class="alerte"><%=error1%></p>
+        <% } %>
+        <!-- <div class="row #b0bec5 ">
+          <div class="form-label-group">
+            <input id="passwordActuel" type="password" class="validate" name="passwordActuel"
+              placeholder="Password actuel" required>
+            <label for="passwordActuel">Ici entrez votre password actuel</label>
+          </div>
+        </div> -->
+        <div class="row #b0bec5 ">
+          <div class="input-field col s12">
+            <input id="password" type="password" class="validate" name="password" placeholder="*Nouveau password"
+              required>
+          </div>
+        </div>
+        <div class="form-label-group">
+          <input type="password" class="form-control" id="passwordConfirm" name="passwordConfirm"
+            placeholder="*Confirmez votre mot de passe" required>
+          <label for="passwordConfirm">Confirmez votre mot de passe</label>
+        </div>
+        <div class="text-log">
+          <input class="btn blue-grey lighten-2" type="submit" value="valider" />
+        </div>
+        <br>
+        <a class="btn blue-grey lighten-2" href="/">Accueil</a>
+        <a class="btn blue-grey lighten-2" href="/profil">Retour</a>
+        <div class="text-log">
+        </div>
+      </form>
+    </div>
+  </main>
+  <%- include('partials/footer')%>

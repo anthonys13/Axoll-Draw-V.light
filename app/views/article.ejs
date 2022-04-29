@@ -1,0 +1,43 @@
+<%- include('partials/header')%>
+<main>
+    <div class="container ">
+        <div class="slider-css z-depth-3">
+            <input type="radio" id="slide1" name="slider" checked>
+            <input type="radio" id="slide2" name="slider">
+            <input type="radio" id="slide3" name="slider">
+            <div class="slider-css-images-mini">
+                <label for="slide1">
+                    <img src="/images/articles/<%= oneArticle.visual_1 %>" alt="IMG" />
+                </label>
+                <label for="slide2">
+                    <img src="/images/articles/<%= oneArticle.visual_2 %>" alt="IMG" />
+                </label>
+                <label for="slide3">
+                    <img src="/images/articles/<%= oneArticle.visual_3 %>" alt="IMG" />
+                </label>
+            </div>
+            <div class="slider-css-images">
+                <img class="size-carrou" src="/images/articles/<%= oneArticle.visual_1 %>" alt="IMG" />
+                <img class="size-carrou" src="/images/articles/<%= oneArticle.visual_2 %>" alt="IMG" />
+                <img class="size-carrou" src="/images/articles/<%= oneArticle.visual_3 %>" alt="IMG" />
+            </div>
+        </div>
+        <div class="div-card col s12 m6 l3 #b0bec5 blue-grey lighten-2 z-depth-3">
+            <div class="card-content">
+                <span class="card-title"><%= oneArticle.name %></span>
+                <p><%= oneArticle.description %></p>
+                <p><%= oneArticle.size %>cm</p>
+                <p><%= oneArticle.price %>€</p>
+            </div>
+            <a class="btn-color" type="image" href="/favoris/add/<%=oneArticle.id%>">
+                <i class="material-icons ">favorite_border</i>
+            </a>
+            <a class="btn-color" type="image" href="/panier/add/<%=oneArticle.id%>">
+                <i class="material-icons ">add_shopping_cart</i>
+            </a>
+        </div>
+        <a class="btn blue-grey lighten-2" href="/">Retour</a>
+    </div>
+
+</main>
+<%- include('partials/footer')%>

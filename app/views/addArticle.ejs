@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Axoll Draw</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+
+<body class="#b0bec5 blue-grey lighten-1">
+
+  <main class="mainAdmin #b0bec5 blue-grey lighten-1">
+
+    <div class="articleAdmin #b0bec5 blue-grey lighten-1 row form-log">
+      <form class="col s12 z-depth-3 #b0bec5 blue-grey lighten-2" action="/admin/add" method="POST">
+        <h4 class="register-page">Ajoute ton article</h4>
+        <% if(locals.error) { %>
+        <p role="alert"><%=error%></p>
+        <% } %>
+        <% if(locals.confirm) { %>
+          <p role="alert"><%=confirm%></p>
+          <% } %>
+        <ul>
+          <li>
+            <input type="text" name="name" placeholder="*Nom de l'article">
+          </li>
+          <li>
+            <input type="text" name="description" placeholder="*description">
+          </li>
+          <li>
+            <input type="number" name="size" placeholder="*taille en cm">
+          </li>
+          <li>
+            <input type="number" name="price" placeholder="*prix">
+          </li>
+          <li>
+            <!-- <input action="fileupload" class="btn blue-grey lighten-2" enctype="multipart/form-data" type="file"
+              name="filetoupload"> -->
+            <input type="text" name="visual_0" placeholder="*nom exacte de l'image.JPG">
+          </li>
+          <li>
+            <!-- <input action="fileupload" class="btn blue-grey lighten-2" enctype="multipart/form-data" type="file"
+              name="filetoupload"> -->
+            <input type="text" name="visual_1" placeholder="*nom exacte de l'image.JPG">
+          </li>
+          <li>
+            <!-- <input action="fileupload" class="btn blue-grey lighten-2" enctype="multipart/form-data" type="file"
+              name="filetoupload"> -->
+            <input type="text" name="visual_2" placeholder="*nom exacte de l'image.JPG">
+          </li>
+          <li>
+            <!-- <input action="fileupload" class="btn blue-grey lighten-2" enctype="multipart/form-data" type="file"
+              name="filetoupload"> -->
+            <input type="text" name="visual_3" placeholder="*nom exacte de l'image.JPG">
+          </li>
+          <li>
+            <input type="text" name="category" placeholder="category">
+          </li>
+        </ul>
+        <div class="text-log">
+          <input class="btn blue-grey lighten-2" type="submit" value="valider" />
+        </div>
+      </form>
+    </div>
+  </main>
+  <a class="btn blue-grey lighten-2" href="/admin">Retour</a>
+  <a class="btn blue-grey lighten-2" href="/">Accueil</a>
+</body>
+</html>

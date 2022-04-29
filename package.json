@@ -1,0 +1,26 @@
+{
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "bcryptjs": "^2.4.3",
+    "cli-cursor": "^4.0.0",
+    "cookie-parser": "^1.4.6",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.0",
+    "ejs": "^3.1.6",
+    "email-validator": "^2.0.4",
+    "express": "^4.17.3",
+    "express-session": "^1.17.2",
+    "jsonwebtoken": "^8.5.1",
+    "morgan": "^1.10.0",
+    "node": "^17.5.0",
+    "node-dev": "^7.2.0",
+    "pg": "^8.7.3",
+    "sequelize": "^6.17.0"
+  },
+  "scripts": {
+    "start": "node .",
+    "dev": "node-dev index.js --no-notify",
+    "hello": "echo \"Hello world!\"",
+    "resetDB": "psql -U gruntsass -d axolldraw -f data/create_db.sql"
+  }
+}

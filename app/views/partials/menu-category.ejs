@@ -1,0 +1,13 @@
+<div class="container menu-category">
+    <div class="categories collection">
+        <% if(locals.categories){ %>
+        <% for (const category of categories) { %>
+            
+        <a class="collection-item" href="/?categories=<%= category.dataValues.label %>">
+            <%= category.dataValues.label %>
+            <span class="badge #26a69a teal lighten-1"><%= category.dataValues.tot %></span>
+        </a>
+        <% } %>
+        <% } %>
+    </div>
+</div>

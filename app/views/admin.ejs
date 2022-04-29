@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Axoll Draw</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+
+<body class="#b0bec5 blue-grey lighten-1">
+  <main class="mainAdmin #b0bec5 blue-grey lighten-1">
+    <div class="tableAdmin row form-log">
+      <div class="tableAdmin row form-log">
+        <table class="#90a4ae blue-grey lighten-3 z-depth-3 highlight centered responsive-table">
+          <thead>
+            <tr>
+              <th>Client</th>
+              <th>Article</th>
+              <th>Prix</th>
+              <th>Date achat</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <td class="#90a4ae blue-grey lighten-3"></td>
+              <td class="#90a4ae blue-grey lighten-3"></td>
+              <td class="#90a4ae blue-grey lighten-3"></td>
+              <td class="#90a4ae blue-grey lighten-3"></td>
+            </tr>
+            <tr>
+              <td class="#90a4ae blue-grey lighten-3"></td>
+              <td class="#90a4ae blue-grey lighten-3"></td>
+              <td class="#90a4ae blue-grey lighten-3"></td>
+              <td class="#90a4ae blue-grey lighten-3"></td>
+            </tr>
+            <tr>
+              <td class="#90a4ae blue-grey lighten-3"></td>
+              <td class="#90a4ae blue-grey lighten-3"></td>
+              <td class="#90a4ae blue-grey lighten-3"></td>
+              <td class="#90a4ae blue-grey lighten-3"></td>
+            </tr>
+            <tr>
+              <td class="#90a4ae blue-grey lighten-3"></td>
+              <td class="#90a4ae blue-grey lighten-3"></td>
+              <td class="#90a4ae blue-grey lighten-3"></td>
+              <td class="#90a4ae blue-grey lighten-3"></td>
+            </tr>
+          </tbody>
+          <tfooter>
+            <tr>
+              <th>Total des ventes : X €</th>
+            </tr>
+          </tfooter>
+        </table>
+      </div>
+      <div class="tableAdmin row form-log">
+        <table class="#90a4ae blue-grey lighten-3 z-depth-3 highlight centered responsive-table">
+          <thead>
+            <tr>
+              <th class="#90a4ae blue-grey lighten-3 ">Email utilisateurs</th>
+              <th class="#90a4ae blue-grey lighten-3 ">Nom Prenom</th>
+              <th class="#90a4ae blue-grey lighten-3 ">Adresse</th>
+              <th class="#b0bec5 blue-grey lighten-3">Roles</th>
+              <th class="#b0bec5 blue-grey lighten-3">Date inscription</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% for ( const user of dataUsers) { %>
+            <tr>
+              <td class="#90a4ae blue-grey lighten-3"><%= user.email %></td>
+              <td class="#90a4ae blue-grey lighten-3"><%= user.name %> <%= user.prenom %></td>
+              <td class="#90a4ae blue-grey lighten-3"><%= user.pays %>, <%= user.ville %>, <%= user.adresse %></td>
+              <td class="#90a4ae blue-grey lighten-3"><%= user.role %></td>
+              <td class="#90a4ae blue-grey lighten-3"><%= user.created_at %></td>
+            </tr>
+            <% } %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </main>
+  <a class="btn blue-grey lighten-2" href="/admin/article">Ajouter un article</a>
+  <a class="btn blue-grey lighten-2" href="/">Accueil</a>
+</body>
+
+</html>

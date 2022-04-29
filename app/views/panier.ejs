@@ -1,0 +1,68 @@
+<%- include('partials/header')%>
+<main class="main-favoris">
+
+    <h3 class="text-center"><%= title %></h3>
+
+    <div class="container">
+
+        <% if(renderMyPani.length){ %>
+        <table class="table">
+            <thead>
+                <th>Article</th>
+                <th>Description</th>
+                <th>Prix TTC</th>
+            </thead>
+            <% for(const myPani of renderMyPani) { %>
+            <tr class="#b0bec5 white lighten-2">
+                <td>
+                    <a type="image" href="/article/<%=myPani.id%>" class="flex-imgArticle">
+                        <img class="img-article z-depth-3" src="/images/articles/<%=myPani.visual_0%>" alt="IMG"></a>
+                </td>
+                <td>
+                    <p><%=myPani.description%></p>
+                    <p><%=myPani.size%> cm</p>
+                </td>
+                <td>
+                    <p class="item-favoris"><%=myPani.price%>€</p>
+                </td>
+                <td>
+                    <a class="btn-color" type="image" href="/panier/delete/<%=myPani.id%>">
+                        <i class="material-icons ">delete</i>
+                    </a>
+                </td>
+            </tr>
+            <% } %>
+        </table>
+        <span class="total-reglement-panier">
+            <div class="sticky-panier">
+                <p>
+                    Sous-total (<%=Number(renderMyPani.length) %> article(s)):
+                    <strong>
+                        <% var total = 0; %>
+                        <% for (var i = 0; i < Number(renderMyPani.length); i++) { %>
+                        <% var priceArray =  renderMyPani[i].price; %>
+                        <% total += priceArray; %>
+                        <% console.log(priceArray); %>
+                        <% console.log(total); %>
+                        <% } %>
+                        total: <%= total.toFixed(2) %>€
+                    </strong>
+                </p>
+                <a class="btn blue-grey lighten-2" type="image" href="/passercommande">Valider votre Panier
+                    <i class="material-icons ">payment</i>
+                </a>
+            </div>
+        </span>
+    </div>
+    <br>
+    <% } else { %>
+    <p>Aucun article dans votre panier</p>
+    <% } %>
+    <div>
+        <a class="btn blue-grey lighten-2" href="/">
+            Retour à l'accueil
+        </a>
+    </div>
+    <br>
+</main>
+<%- include('partials/footer')%>

@@ -1,0 +1,7 @@
+**USERS** (<ins>ID</ins>, email, password, role, name, prenom, pays, ville, adresse, created_at, updated_at)  
+**HISTORIQUE_DE_VENTE** (<ins>ID</ins>, user_id, article_id, name, category, price, visual_0, created_at, updated_at)  
+**USERSLOCKERFAVORIS** (<ins>ID</ins>, user_id, article_id, created_at, updated_at)  
+**HASMANY** (<ins>_ID_</ins>, <ins>_ID.1_</ins>)  
+**USERSLOCKERPANIER** (<ins>ID</ins>, user_id, article_id, created_at, updated_at)  
+**ARTICLE** (<ins>ID</ins>, name, description, size, price, visual_0, visual_1, visual_2, visual_3, category, created_at, updated_at)  
+**AFFICHE** (<ins>ID</ins>, name, visual_0, visual_1, visual_2, visual_3, visual_4, visual_5, visual_6, date)

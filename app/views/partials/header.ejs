@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Axoll Draw</title>
+  <link rel="shortcut icon" href="/images/icones/">
+  <link rel="stylesheet" href="/css/style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" integrity="sha512-UJfAaOlIRtdR+0P6C3KUoTDAxVTuy3lnSXLyLKlHYJlcSU8Juge/mjeaxDNMlw9LgeIotgz5FP8eUQPhX1q10A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+
+<body>
+  <header>
+    <nav class="nav-extended #b0bec5 blue-grey lighten-2">
+      <div class="nav-content">
+        <ul class="tabs tabs-transparent">
+          <ul id="nav-mobile" class="log right">
+            <% if(locals.session.user) { %>
+            <li><a href="/logout">Se déconnecter</a></li>
+            <% } else { %>
+            <li><a href="/login">Se connecter</a></li>
+            <li><a href="/register">S'inscrire</a></li>
+            <% } %>
+          </ul>
+          <li class="tab right ">
+            <a>
+              <i class="material-icons " onclick="window.location.href = '/panier'">shopping_cart</i>
+            </a>
+          </li>
+          <li class="tab right">
+            <a>
+              <i class="material-icons" onclick="window.location.href = '/favoris'">favorite_border</i>
+            </a>
+          </li>
+          <li class="tab right">
+            <a>
+              <i class="material-icons" onclick="window.location.href = '/profil'">account_box</i>
+            </a>
+          </li>
+          <% if (locals.session.user !== undefined ) {%>
+          <% if (locals.session.user[0].role === 'admin') { %>
+          <li class="tab right">
+            <a>
+              <i class="material-icons" onclick="window.location.href = '/admin'">lock_open</i>
+            </a>
+          </li>
+          <% }} %>
+          <a type="image" href="/">
+            <img class="responsive-img circle z-depth-3 left" src="/images/icones/">
+          </a>
+        </ul>
+        <p class="card-panel #ef5350 red lighten-3">Site vitrine de test. 
+          <br>
+          Mon ici: <strong><a href="https://salleanthony.fr" class="cta" target="_blank">portfolio</a></strong></p>
+        
+      </div>
+    </nav>
+  </header>
